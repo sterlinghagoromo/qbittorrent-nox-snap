@@ -32,6 +32,11 @@ parts:
     build-packages:
       - zlib1g-dev
       - libssl-dev
+      - qt6-base-dev
+      - qttools6-dev
+      - libqt6svg6-dev
+    stage-packages:
+      - python3
     prime:
       - bin
     after:
