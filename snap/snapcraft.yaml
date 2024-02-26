@@ -35,7 +35,7 @@ parts:
       - qt6-base-dev
       - qt6-tools-dev
       - libqt6svg6-dev
-      - linquist-qt6
+      - linguist-qt6
       - qt6-l10n-tools
       - qt6-tools-dev-tools
     stage-packages:
