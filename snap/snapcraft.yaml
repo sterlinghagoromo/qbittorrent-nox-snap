@@ -25,6 +25,7 @@ parts:
       - -DCMAKE_EXE_LINKER_FLAGS_RELEASE=-s
       - -DCMAKE_INSTALL_PREFIX=''
       - -DGUI=OFF
+      - -DQT6=ON
     override-pull: |
       craftctl default
       craftctl set "version=$(git describe | sed 's/^release-//')"
