@@ -1,23 +1,21 @@
-name: qbittorrent-arnatious # you probably want to 'snapcraft register <name>'
+name: qbittorrent-nox-sterlingh # you probably want to 'snapcraft register <name>'
 base: core22 # the base snap is the execution environment for this snap
-adopt-info: qbittorrent
-summary: A free and lightweight torrent client
+adopt-info: qbittorrent-nox
+summary: a command line Bittorrent client written in C++ / Qt
 description: |
-  qBittorrent is a full featured FOSS alternative to uTorrent.
+  **qBittorrent-nox** is  an  advanced command-line Bittorrent client written in C++ / Qt using the libtorrent-rasterbar library by Arvid Norberg.  qBittorrent-nox  aims  to  be  a  good alternative  to  other  command  line  bittorrent clients and provides features similar to popular graphical clients.
 
-  With a lightweight, Qt based GUI and built in search engine,
-  Bittorrent extensions, and advanced network management tools,
-  qBittorrent is the best client available.
+  qBittorrent-nox is fast, stable, light and it supports unicode.  It also comes  with  UPnP port forwarding / NAT-PMP, encryption (Vuze compatible), FAST extension (mainline) and PeX support (utorrent compatible).
+  
+  qBittorrent-nox is meant to be controlled via its feature-rich Web UI which is  accessible as  a  default  on  [http://localhost]|(http://localhost:8080).   The  Web UI access is secured and the default account user name is “admin” with “adminadmin” as a password.
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 
-architectures:
-  - amd64
-  - arm64
+architectures: [amd64, arm64]
 
 parts:
-  qbittorrent:
+  qbittorrent-nox:
     # See 'snapcraft plugins'
     plugin: cmake
     source: https://github.com/qbittorrent/qBittorrent.git
@@ -26,20 +24,15 @@ parts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DCMAKE_EXE_LINKER_FLAGS_RELEASE=-s
       - -DCMAKE_INSTALL_PREFIX=''
+      - -DGUI=OFF
     override-pull: |
       craftctl default
       craftctl set "version=$(git describe | sed 's/^release-//')"
-    override-build: |
-      craftctl default
-      sed 's|^Icon=.*|Icon=${SNAP}/share/icons/hicolor/scalable/apps/qbittorrent.svg|' \
-        -i "$CRAFT_PART_INSTALL/share/applications/org.qbittorrent.qBittorrent.desktop"
     build-packages:
       - zlib1g-dev
       - libssl-dev
     prime:
       - bin
-      - share/applications
-      - share/icons/hicolor/scalable/apps
     after:
       - libtorrent
 
@@ -59,22 +52,14 @@ parts:
       - -*
 
 apps:
-  qbittorrent:
-    extensions:
-      - kde-neon
-    command: bin/qbittorrent
-    desktop: share/applications/org.qbittorrent.qBittorrent.desktop
+  qbittorrent-nox:
+    command: bin/qbittorrent-nox
     plugs:
       - home
       - network
       - network-bind
       - removable-media
       - raw-usb
-      - unity7
-      - gsettings
-      - network-status
-      - network-manager
-      - network-control
 
 plugs:
   desktop:
