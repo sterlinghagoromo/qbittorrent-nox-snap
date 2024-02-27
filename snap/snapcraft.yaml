@@ -20,6 +20,8 @@ parts:
     plugin: cmake
     source: https://github.com/qbittorrent/qBittorrent.git
     source-branch: v4_6_x
+    environment:
+      
     cmake-parameters:
       - -DCMAKE_BUILD_TYPE=Release
       - -DCMAKE_EXE_LINKER_FLAGS_RELEASE=-s
@@ -88,6 +90,8 @@ apps:
     command: bin/qbittorrent-nox
     daemon: simple
     stop-mode: sigint-all
+    environment:
+      ISTHISON: 1
     plugs:
       - home
       - network
