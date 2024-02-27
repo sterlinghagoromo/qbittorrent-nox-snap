@@ -73,6 +73,8 @@ parts:
 apps:
   qbittorrent-nox:
     command: bin/qbittorrent-nox
+    daemon: simple
+    stop-mode: sigint-all
     plugs:
       - home
       - network
