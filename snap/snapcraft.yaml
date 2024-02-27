@@ -94,7 +94,3 @@ apps:
       - network-bind
       - removable-media
       - raw-usb
-
-plugs:
-  desktop:
-    mount-host-font-cache: false
