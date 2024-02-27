@@ -62,6 +62,7 @@ parts:
       - usr/lib/*/libicui18n.*
       - usr/lib/*/libicuuc.*
       - usr/lib/*/libpcre2.*
+      - usr/lib/*/libpcre2-*
       - usr/lib/*/libproxy.*
       - bin
     after:
