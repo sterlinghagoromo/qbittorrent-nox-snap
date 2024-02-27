@@ -51,6 +51,18 @@ parts:
       - libpcre2-16-0
       - libproxy1v5
     prime:
+      - usr/lib/*/libQt6Core.*
+      - usr/lib/*/libQt6Network.*
+      - usr/lib/*/libQt6Sql.*
+      - usr/lib/*/libQt6Xml.*
+      - usr/lib/*/libb2.*
+      - usr/lib/*/libdouble-conversion.*
+      - usr/lib/*/libgomp.*
+      - usr/lib/*/libicudata.*
+      - usr/lib/*/libicui18n.*
+      - usr/lib/*/libicuuc.*
+      - usr/lib/*/libpcre2.*
+      - usr/lib/*/libproxy.*
       - bin
     after:
       - libtorrent
