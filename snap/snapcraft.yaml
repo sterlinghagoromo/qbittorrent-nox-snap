@@ -40,6 +40,16 @@ parts:
       - qt6-tools-dev-tools
     stage-packages:
       - python3
+      - libqt6core6
+      - libqt6network6
+      - libqt6sql6
+      - libqt6xml6
+      - libb2-1
+      - libdouble-conversion3
+      - libgomp1
+      - libicu70
+      - libpcre2-16-0
+      - libproxy1v5
     prime:
       - bin
     after:
